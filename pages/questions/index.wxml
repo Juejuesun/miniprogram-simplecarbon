@@ -13,10 +13,11 @@
       <swiper bindchange="refelsh" class="introduce" indicator-dots="{{false}}" current="{{currented}}" indicator-color="rgba(0,0,0,0.1)" indicator-active-color="red">
         <swiper-item>
           <view class="text-box"><text>这是第一道选择题，请选择你的答案。这是第一道选择题，请选择你的答案</text></view>
-          <checkbtn></checkbtn>
+          <checkbtn btnIndex="{{0}}" btnText="{{qlist}}" btnType="{{false}}" bind:getNowData="getCurrentTextAction"></checkbtn>
         </swiper-item>
         <swiper-item>
-        222
+          <view class="text-box"><text>这是第二道选择题，请选择你的答案。</text></view>
+          <checkbtn btnIndex="{{1}}" btnText="{{qlist}}" btnType="{{true}}" bind:getNowData="getCurrentTextAction"></checkbtn>
         </swiper-item>
         <swiper-item>
         333

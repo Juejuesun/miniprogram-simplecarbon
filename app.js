@@ -1,4 +1,6 @@
 // app.js
+import request from 'service/network.js'
+
 App({
   onLaunch() {
     // 展示本地存储能力
@@ -45,6 +47,34 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         console.log(res)
+        wx.getWeRunData({
+          success: resrun => {
+            // 拿 encryptedData 到开发者后台解密开放数据
+            console.log(resrun)
+            request({
+              data:{
+                'code':res.code,
+                'encryptedData': resrun.encryptedData,
+                'iv': resrun.iv
+              },
+              url: 'weixin/wxlogin',
+            }).then(ress => {
+              console.log(ress)
+    
+              // wx.setStorageSync('userId', res.data.userId)
+              // this.globalData.userId=res.data.userId
+              // wx.setStorageSync('dormitoryId', res.data.dormitoryId)
+              // this.globalData.dormitoryId=res.data.dormitoryId
+              // wx.redirectTo({
+              //   url: '/pages/dormitory/dormitory',
+              // })
+              
+            }).catch(err => {
+              console.log(err)
+            })
+          }
+        })
+        
       }
     })
     //获取用户信息

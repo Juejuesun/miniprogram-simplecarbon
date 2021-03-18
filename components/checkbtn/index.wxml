@@ -1,7 +1,7 @@
 <!--components/checkbtn/index.wxml-->
 <view class="checkbox-container">
-  <view class="btn-box btn-box-checked">A. 这是第一个答案这是第一个答案这是第一个答案这是第一</view>
-  <view class="btn-box">B. 这是第二个答案</view>
+  <view wx:for="{{btnText}}" wx:key="index" class="{{selectIndex[index].sureid ? 'btn-box-checked' : ''}} btn-box" data-selectIndex="{{index}}" bindtap="selectRep">{{qindex[index]}}、{{item.coin}}</view>
+  <!-- <view class="btn-box">B. 这是第二个答案</view>
   <view class="btn-box">C. 这是第三个答案</view>
-  <view class="btn-box">D. 这是第四个答案</view>
+  <view class="btn-box">D. 这是第四个答案</view> -->
 </view>

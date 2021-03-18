@@ -6,7 +6,24 @@ Page({
    */
   data: {
     ifBegin: false,
-    currented: 0
+    currented: 0,
+    qlist: [
+      {coin: '第一个答案'},
+      {coin: '第二个答案'},
+      {coin: '第三个答案'},
+      {coin: '第四个答案'}
+    ],
+    answerList: [[],[],[],[],[]]
+  },
+  getCurrentTextAction:function(e){
+    let item = e.detail
+    // console.log(item)
+    let currList = this.data.answerList
+    currList[item.index] = item.selectedList
+    this.setData({
+      answerList: currList
+    })
+    console.log(this.data.answerList)
   },
   getQuestion() {
     this.setData({
